@@ -18,7 +18,7 @@ export class ControleEditoraService {
 
   //Busca e disponibiliza a lista de editoras
   getEditoras(): Array<Editora> {
-    return this.editoras;
+    return [...this.editoras];
   }
 
   //Busca uma editora pelo seu código e retorna o seu nome.

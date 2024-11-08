@@ -9,7 +9,7 @@ import { Livro } from './livro';
 export class ControleLivrosService {
   // Cria uma base de dados fake para teste 
   private livros: Array<Livro> = [
-    {codigo: 1, codEditora:3, titulo: 'Um titulo qualquer 1', resumo: 'Um resumo muito importante 1', autores:['Glaber Mascaranha', 'Edgar Mascaranha', 'Delgat Mascaranha']},
+    {codigo: 1, codEditora:3, titulo: 'Um titulo qualquer 1', resumo: 'Um resumo muito importante 1', autores:['Glauber Mascaranha', 'Edgar Mascaranha', 'Delgat Mascaranha']},
     {codigo: 2, codEditora:1, titulo: 'Um titulo qualquer 2', resumo: 'Um resumo muito importante 2', autores:['Francisco Muller', 'Raysa Muller']},
     {codigo: 3, codEditora:2, titulo: 'Um titulo qualquer 3', resumo: 'Um resumo muito importante 3', autores:['Rita Belchior', 'Rute Belchior']},
   ];
@@ -30,7 +30,8 @@ export class ControleLivrosService {
   // Função para localizar um livro pelo código e excluí-lo.
   excluir(codigo: number): void {
     const indice = this.livros.findIndex(livro => livro.codigo === codigo);
-    if (indice > 0) {
+    /* Aqui alterei o > para >= para poder excluir o primeiro item da lista */ 
+    if (indice >= 0) {
       this.livros.splice(indice, 1);
     }
   }

@@ -1,1 +1,33 @@
-<p>livro-dados works!</p>
+<main class="container mt-4">
+  <h3>Inserir Livro</h3>
+
+  <form class="col g-3" (ngSubmit)="incluir()">
+    <div class="col-auto">
+      <label for="inputTitulo" class="label">Título</label>
+      <input type="text" class="form-control mb-3" name="inputTitulo" id="inputTitulo" [(ngModel)]="livro.titulo" placeholder="Entre com o título do livro...">
+    </div>
+
+    <div class="col-auto">
+      <label for="inputAutores" class="label">Autores</label>
+      <textarea class="form-control" name="inputAutores" id="inputAutores" [(ngModel)]="autoresForm" placeholder="Entre com os autores do livro..."></textarea>
+    </div>
+
+    <div class="col-auto">
+      <label for="textareaResumo" class="label">Resumo</label>
+      <textarea class="form-control mb-3" name="textareaResumo" id="textareaResumo" [(ngModel)]="livro.resumo" placeholder="Entre com o resumo do livro..."></textarea>
+    </div>
+
+    <div class="col-auto">
+      <label for="selectEditora" class="label">Editora</label>
+      <select class="form-control mb-3" id="selectEditora" [(ngModel)]="livro.codEditora" name="selectEditora">
+        <option *ngFor="let editora of editoras" [value]="editora.codEditora">
+          {{ editora.nome }}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mt-3">Incluir</button>
+    </div>
+  </form>
+</main>
